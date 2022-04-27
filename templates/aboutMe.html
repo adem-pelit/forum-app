@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/headers.css">
+  <title>Anasayfa</title>
+</head>
+
+<body>
+  <div class="postlar">
+    <div class="holder" id='user_{{user[1]}}'>
+      <div class="ppnicklogos">
+        <div class="ppnick">
+          <img src="{{user[3]}}" alt="profile photos" class="pp" width="64" height="64">
+          <div class="name" style="font-size: 30px;">{{user[1]}}</div>
+        </div>
+        <div>{{user[5]}}</div>
+      </div>
+      <h3>Hakkımda</h3>
+      <div class="text">{{user[4]}}</div>
+
+    </div>
+    {% for i in headers %}
+    <div class="holder" id='headline_{{i[0]}}'>
+      <h1 style="text-align: center;">{{i[1]}}</h1>
+      <div class="text">{{i[2]}}</div>
+      <div class="ppnicklogos">
+        <div class="ppnick">
+          <img src="{{i[5]}}" alt="profile photos" class="pp" width="32" height="32">
+          <a href="/user?name={{i[4]}}" class="name">{{i[4]}}</a>
+        </div>
+        <div>{{i[3]}} Beğenme</div>
+      </div>
+
+    </div>
+    {% endfor %}
+    <a href="/logout">logout</a>
+  </div>
+  <script src="static/postlar.js"></script>
+</body>
+
+</html>

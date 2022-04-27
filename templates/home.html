@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    HOMEPAGE
+{% endblock%}
+
+{% block content %}
+    <h1>Home Page</h1>
+    <p>{{name}}</p>
+    <p>{{password}}</p>
+    {% for i in para %}
+        <p>{{ i }}</p>
+    {% endfor %}
+    <a href="/logout">logout</a>
+{% endblock%}

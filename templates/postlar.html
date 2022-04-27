@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/postlar.css">
+  <title>{{i[1]}}</title>
+</head>
+
+<body>
+  <div class="postlar" id="postlar">
+    <div class="holder" id='{{i[0]}}'>
+      <h1 style="text-align: center;">{{i[1]}}</h1>
+      <div class="text">{{i[2]}}</div>
+      <div class="ppnicklogos">
+        <div class="ppnick">
+          <img src="{{i[5]}}" alt="profile photos" class="pp" width="32" height="32">
+          <a href="/user?name={{i[4]}}" class="name">{{i[4]}}</a>
+        </div>
+        <div class="delandarchive">
+          {% if isMod == 1 or name == i[4] %}
+            {% if i[6]==1 %}
+              <img onclick="changeCanComment('{{i[0]}}',0)" src="static/icon/inbox.png" alt="" class="logos" width="32" height="32">
+            {% endif %}
+            {% if i[6]==0 %}
+              <img onclick="changeCanComment('{{i[0]}}',1)" src="static/icon/archive.png" alt="" class="logos" width="32" height="32">
+            {% endif %}
+            <img onclick="deleteHeadline('{{i[0]}}')" src="static/icon/remove.png" alt="" class="logos" width="32"
+            height="32">
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+    {% for yorum in yorumlar %}
+    <div class="holder" id='{{yorum[0]}}' onclick="yanitla(this)">
+      {% if yorum[5] != None %}
+      <div class="response" id="{{yorum[5]}}">
+        <div class="text">
+          {{yorum[6]}}
+        </div>
+        <div class="ppnicklogos">
+          <div class="ppnick">
+            <img src="{{yorum[8]}}" alt="profile photos" class="pp" width="32" height="32">
+            <div class="name"> {{yorum[7]}}</div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="text">
+        {{yorum[1]}}
+        <div class="ppnicklogos">
+          <div class="ppnick">
+            <img src="{{yorum[4]}}" alt="profile photos" class="pp" width="32" height="32">
+            <div class="name">{{yorum[3]}}</div>
+          </div>
+          {% if isMod == 1 or name == yorum[3] %}
+          <img src="static/icon/remove.png" onclick="deleteComment('{{yorum[0]}}')" alt="" class="logos" width="32" height="32">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% if i[6] == 1 %}
+    <div class="holder" id='girdi'>
+      <div class="girdi">
+        <input type="text" placeholder="Type a message..." name="message" id="message">
+      </div>
+    </div>
+    {% endif %}
+    {% if i[6] == 0 %}
+    <div class="holder" id='girdi_block'>
+      <div class="text">
+        You can no longer reply this headline!
+      </div>
+    </div>
+    {% endif %}
+    <a href="/logout">logout</a>
+  </div>
+  <script src="static/postlar.js"></script>
+</body>
+
+</html>

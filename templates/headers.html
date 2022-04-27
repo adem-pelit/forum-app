@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/headers.css">
+  <title>Anasayfa</title>
+</head>
+
+<body>
+  <div class="postlar">
+    <div class="holder" id='girdi'>
+      <h1>Paylaşın!</h1>
+      <form class="girdi" method="post" action="/addHeadline">
+        <input type="text" placeholder="Başlık" name="title" id="title"><br>
+        <textarea type="text" placeholder="Açıklama" name="message" id="message"></textarea><br>
+        <input type="submit" value="PAYLAŞ!">
+      </form>
+    </div>
+    {% for i in headers %}
+    <div onclick="goHeadline('{{i[0]}}')" class="holder" id='{{i[0]}}'>
+      <h1 style="text-align: center;">{{i[1]}}</h1>
+      <div class="text">{{i[2]}}</div>
+      <div class="ppnicklogos">
+        <div class="ppnick">
+          <img src="{{i[5]}}" alt="profile photos" class="pp" width="32" height="32">
+          <a href="/user?name={{i[4]}}" class="name">{{i[4]}}</a>
+        </div>
+        <div class="delandarchive">
+          {% if isMod == 1 or name == i[4] %}
+            {% if i[6]==1 %}
+              <img onclick="changeCanComment('{{i[0]}}',0)" src="static/icon/inbox.png" alt="" class="logos" width="32" height="32">
+            {% endif %}
+            {% if i[6]==0 %}
+              <img onclick="changeCanComment('{{i[0]}}',1)" src="static/icon/archive.png" alt="" class="logos" width="32" height="32">
+            {% endif %}
+            <img onclick="deleteHeadline('{{i[0]}}')" src="static/icon/remove.png" alt="" class="logos" width="32"
+            height="32">
+          {% endif %}
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+    <a href="/logout">logout</a>
+
+  </div>
+  <script src="static/postlar.js"></script>
+</body>
+
+</html>
