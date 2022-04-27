@@ -33,9 +33,16 @@ Kullanıcı giriş yaptığında karşınısına anasayfa çıkacaktır. Bu sayf
 
 ### Başlık sayfası
 
-Başlık sayfasında bir başlık ve başlık için yapılan yorumlar bulunmaktadır. 
+Başlık sayfasında bir başlık ve başlık için yapılan yorumlar bulunmaktadır. Kullanıcı başlığa yorum yapabilir, yapılan yorumları yanıtlayabilir, kendi yorumlarını silebilir. Yanıtlama örneği aşağıdaki gibi gösterilebilir.
 
-![image](https://user-images.githubusercontent.com/55463533/165635462-595e6014-5c8c-4f44-b465-1004221d2bfd.png)![image](https://user-images.githubusercontent.com/55463533/165635513-d7af63e5-fc7c-4775-9c2b-56a65f6039ae.png)
+![image](https://user-images.githubusercontent.com/55463533/165635513-d7af63e5-fc7c-4775-9c2b-56a65f6039ae.png)
 
+Başlık yorum yapma seçeneği kapatılınca bu şekilde görünecektir.
 
+![192 168 1 101_5000_post_id=83](https://user-images.githubusercontent.com/55463533/165635997-8cf49e51-3b86-4b63-b9bb-cb20c7192c06.png)
 
+### Hakkımda sayfası
+
+Hakkımda sayfası kullanıcı bilgilerinin bulunduğu sayfadır. Bu sayfada kullanıcının açtığı başlıklar da sıralanmaktadır.
+
+![192 168 1 101_5000_user_name=adempelit (2)](https://user-images.githubusercontent.com/55463533/165638110-bbdd7536-f2a9-4a0f-b900-d39a7fffe49e.png)
